@@ -1,0 +1,30 @@
+﻿# --- Dependências ---
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log*
+
+# --- Next.js Build ---
+.next/
+out/
+build/
+dist/
+
+# --- Variáveis de Ambiente e Segredos (CRÍTICO) ---
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# --- Sistema Operacional ---
+.DS_Store
+Thumbs.db
+
+# --- IDEs ---
+.vscode/
+.idea/
+
+# --- Supabase Local ---
+supabase/tmp/
