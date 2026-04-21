@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { PlayCircle, Award, Layout, LogOut, Search, Bell, User } from "lucide-react";
 import { createClient } from "@/utils/supabase/server";
@@ -27,7 +27,7 @@ export default async function AcademyLayout({
         <div className="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-neutral-800 bg-neutral-900/20">
           <Link href="/portal" className="relative w-40 h-10 hidden md:block opacity-90 hover:opacity-100 transition-opacity">
               <Image 
-                src="/logo-vaultmind.png" 
+                src="/logo-connection-cyber.png" 
                 alt="VaultMindOS Logo" 
                 width={128} 
                 height={32} 

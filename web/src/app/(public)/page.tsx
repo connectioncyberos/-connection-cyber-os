@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { FeatureCard } from "@/components/ui/FeatureCard";
@@ -132,7 +132,7 @@ export default function Home() {
                            {/* FUSÃO TÉCNICA: Otimização de Imagem injetada para compliance com Lint/LCP */}
                            <div className="mb-4">
                             <Image 
-                              src="/logo-vaultmind.png" 
+                              src="/logo-connection-cyber.png" 
                               alt="VaultMindOS Logo" 
                               width={128} 
                               height={32} 

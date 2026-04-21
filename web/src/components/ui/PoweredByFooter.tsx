@@ -23,7 +23,7 @@ export function PoweredByFooter() {
         {/* 2. LOGO DO SISTEMA (Aumentado de w-24 para w-32) */}
         <div className="relative w-32 h-8 grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100 shrink-0">
           <Image 
-            src="/logo-vaultmind.png" 
+            src="/logo-connection-cyber.png" 
             alt="VaultMindOS" 
             fill 
             className="object-contain"

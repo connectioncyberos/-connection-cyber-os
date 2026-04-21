@@ -20,7 +20,7 @@ export default function LoginPage() {
             {/* Logo do Produto (VaultMindOS) */}
             <div className="relative w-56 h-20 transition-transform hover:scale-105 duration-500">
                 <Image 
-                    src="/logo-vaultmind.png" 
+                    src="/logo-connection-cyber.png" 
                     alt="VaultMindOS" 
                     fill 
                     className="object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]"

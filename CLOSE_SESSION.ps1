@@ -1,36 +1,62 @@
 # ==============================================================================
-# PROJETO: VaultMindOS
-# SCRIPT: Protocolo de Encerramento e Backup (Versao Limpa)
+# PROJETO: ConnectionCyberOS
+# SCRIPT: Protocolo de Selagem de Sessao e Backup
 # ==============================================================================
 
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-Write-Host "[SISTEMA] Iniciando Protocolo de Selagem VaultMindOS..." -ForegroundColor Cyan
+Write-Host "==========================================================" -ForegroundColor Cyan
+Write-Host "      CONNECTION CYBER OS | PROTOCOLO DE SELAGEM          " -ForegroundColor White -BackgroundColor DarkBlue
+Write-Host "==========================================================" -ForegroundColor Cyan
 
-# 1. PARADA DOS PROCESSOS
-Write-Host "[PROCESS] Encerrando processos Node.js..." -ForegroundColor White
-Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force
+# 1. RESOLUÇÃO DINÂMICA
+if ($PSScriptRoot -match "scripts$") {
+    $ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+} elseif ($PSScriptRoot) {
+    $ProjectRoot = $PSScriptRoot
+} else {
+    $ProjectRoot = (Resolve-Path .).Path
+}
+Set-Location $ProjectRoot
 
-# 2. CONSOLIDACAO NO GITHUB
-$Mensagem = Read-Host "Descreva a evolucao deste commit"
-Write-Host "[GITHUB] Sincronizando com GitHub..." -ForegroundColor Green
-git add .
-git commit -m "feat(vaultmind): $Mensagem"
-git push origin main
+# 2. PARADA CIRÚRGICA DE PROCESSOS (Fim do "Dano Colateral")
+Write-Host "[PROCESS] Procurando servico na porta 3000..." -ForegroundColor Yellow
 
-# 3. BACKUP FISICO
-# Define o destino com ano corrente (baseado no contexto 2026)
-$Destino = "J:\VaultMindOS_BK2026"
-Write-Host "[BACKUP] Espelhando para o volume BACKUP (J:)..." -ForegroundColor Yellow
+# Busca apenas o PID que está escutando na porta 3000
+$PortProcess = Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue
 
-if (-not (Test-Path $Destino)) {
-    New-Item -ItemType Directory -Path $Destino -Force
+if ($PortProcess) {
+    $PIDToKill = $PortProcess.OwningProcess
+    Stop-Process -Id $PIDToKill -Force -ErrorAction SilentlyContinue
+    Write-Host "[OK] Servidor Next.js (Porta 3000) encerrado com sucesso." -ForegroundColor Green
+} else {
+    Write-Host "[INFO] Nenhum serviço ativo encontrado na porta 3000. (Ja estava parado)" -ForegroundColor Gray
 }
 
-# Robocopy configurado para excluir node_modules e caches para economizar espaço e tempo
-# Backup da Raiz E:\Projetos\VaultMindOS
-robocopy "E:\Projetos\VaultMindOS" $Destino /E /Z /R:5 /W:5 /XD node_modules .next .git /V /MT:8
+# 3. MENSAGEM DE COMMIT INTELIGENTE
+Write-Host "`n[GIT] Preparando consolidacao do codigo..." -ForegroundColor Yellow
+$Mensagem = Read-Host "Descreva a evolucao desta sessao (ex: 'feat: nova pagina de login' ou 'fix: cor do botao')"
 
-# 4. STATUS FINAL
-$Data = Get-Date -Format "dd/MM/yyyy HH:mm"
-Write-Host "[OK] Sessao encerrada e blindada as $Data." -ForegroundColor Green
+if ([string]::IsNullOrWhiteSpace($Mensagem)) {
+    $Mensagem = "chore(infra): atualizacao rotineira e selagem de ambiente"
+}
+
+git add .
+git commit -m "$Mensagem"
+
+# 4. INTEGRAÇÃO COM O BACKUP MESTRE (Reaproveitamento de Código)
+Write-Host "`n[BACKUP] Acionando o Orquestrador Mestre de Backup..." -ForegroundColor Yellow
+$BackupScript = Join-Path $ProjectRoot "scripts\Backup_Sistema_Integrado.ps1"
+
+if (Test-Path $BackupScript) {
+    # Chama o script mestre que testamos no Passo 1
+    & $BackupScript
+} else {
+    Write-Host "[ERRO] Script de Backup Mestre não encontrado em $BackupScript" -ForegroundColor Red
+    Write-Host "[GIT] Fazendo push de emergencia direto para o GitHub..." -ForegroundColor Yellow
+    git push origin main
+}
+
+Write-Host "`n==========================================================" -ForegroundColor Cyan
+Write-Host " [OK] SESSÃO ENCERRADA E BLINDADA COM SUCESSO." -ForegroundColor Green
+Write-Host "==========================================================" -ForegroundColor Cyan

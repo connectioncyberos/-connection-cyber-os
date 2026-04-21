@@ -1,19 +1,20 @@
 ﻿import { type NextRequest } from 'next/server'
 import { updateSession } from '@/utils/supabase/middleware'
 
-export async function middleware(request: NextRequest) {
-  // Atualiza o token do Supabase (renovação automática)
+// No Next.js 16, a função deve ser exportada como default ou ter o nome 'proxy'
+export default async function proxy(request: NextRequest) {
+  // A função updateSession (que está no utils) faz a verificação de cookies e proteção de rotas
   return await updateSession(request)
 }
 
 export const config = {
   matcher: [
     /*
-     * Aplica o middleware em todas as rotas, EXCETO:
+     * Faz o match de todas as rotas exceto:
      * - _next/static (arquivos estáticos)
      * - _next/image (otimização de imagens)
-     * - favicon.ico (ícone)
-     * - imagens (jpg, png, svg, etc)
+     * - favicon.ico (ícone do site)
+     * - imagens soltas na raiz (png, svg, jpg)
      */
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
