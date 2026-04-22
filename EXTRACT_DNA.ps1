@@ -1,23 +1,33 @@
-# -------------------------------------------------------------------------
-# PROJETO: CONNECTION CYBER OS - LEGACY HARVESTER
-# ARQUIVO: EXTRACT_DNA.ps1
-# OBJETIVO: MAPEAMENTO CIRÚRGICO PARA FUSÃO DE CADASTROS (EXTREMO ZERO)
-# -------------------------------------------------------------------------
+# ==============================================================================
+# PROJETO: ConnectionCyberOS
+# SCRIPT: Scanner de Ativos Arquiteturais (DNA)
+# OBJETIVO: Destacar componentes críticos de arquitetura (Schemas, Roteamento, IA)
+# ==============================================================================
 
 Clear-Host
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-$CurrentPath = (Get-Item .).FullName
-$ProjectName = (Get-Item .).Name.ToUpper()
+# 1. RESOLUÇÃO DINÂMICA
+if ($PSScriptRoot -match "scripts$") {
+    $CurrentPath = (Resolve-Path "$PSScriptRoot\..").Path
+} elseif ($PSScriptRoot) {
+    $CurrentPath = $PSScriptRoot
+} else {
+    $CurrentPath = (Resolve-Path .).Path
+}
+
+$ProjectName = (Get-Item $CurrentPath).Name.ToUpper()
 
 Write-Host "==========================================================" -ForegroundColor Magenta
-Write-Host "      SCANNER DE ATIVOS LEGADOS | PROJETO: [$ProjectName]      " -ForegroundColor White -BackgroundColor DarkMagenta
-Write-Host "      ALVO: EXTRAÇÃO DE ESTRUTURA PARA CONNECTIONCYBER        " -ForegroundColor Cyan
+Write-Host "       SCANNER DE DNA ARQUITETURAL | PROJETO: [$ProjectName]  " -ForegroundColor White -BackgroundColor DarkMagenta
+Write-Host "       ALVO: MAPEAMENTO DE ESTRUTURAS CRÍTICAS            " -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Magenta
 
-# Filtro inteligente para focar em Arquitetura (Schemas, Types e Business Logic)
-$Exclude = @("node_modules", ".next", ".git", "package-lock.json", ".vercel", "dist", ".cache", "tmp")
-$PriorityFolders = @("src", "lib", "models", "types", "schemas", "database", "backend", "web")
+# 2. HEURÍSTICA DE FILTRAGEM
+$Exclude = @("node_modules", ".next", ".turbo", ".git", "dist", ".cache", "tmp", ".vercel", "__pycache__", ".venv")
+
+# Pastas que ganham destaque (Cor Azul/Branco)
+$PriorityFolders = @("src", "lib", "models", "types", "schemas", "database", "backend", "web", "app", "components")
 
 function Get-ArchitecturalTree {
     param ([string]$Path, [string]$Indent = "")
@@ -35,17 +45,19 @@ function Get-ArchitecturalTree {
             }
             Get-ArchitecturalTree -Path $Item.FullName -Indent "$Indent|   "
         } else {
-            # Sinalizar arquivos críticos de Banco de Dados e Tipagem
-            if ($Item.Name -match "(schema|database|types|prisma|supabase|model|action|auth)") {
+            # Sinalizar arquivos críticos de Banco de Dados, Tipagem e Roteamento
+            if ($Item.Name -match "(schema\.prisma|database\.ts|layout\.tsx|page\.tsx|middleware\.ts|proxy\.ts|server\.ts|ai_core\.py)") {
                 Write-Host "$Indent|---$($Item.Name) [ALVO CRÍTICO]" -ForegroundColor Green -BackgroundColor Black
             } else {
+                # Se não for crítico, pinta de cinza para não poluir a visão
                 Write-Host "$Indent|---$($Item.Name)" -ForegroundColor Gray
             }
         }
     }
 }
 
+# 3. EXECUÇÃO
 Get-ArchitecturalTree -Path $CurrentPath
 Write-Host "`n==========================================================" -ForegroundColor Magenta
-Write-Host "VARREDURA DO PROJETO $ProjectName FINALIZADA." -ForegroundColor Green
-Write-Host "LOCAL: $CurrentPath" -ForegroundColor Gray
+Write-Host " [OK] VARREDURA DO PROJETO $ProjectName FINALIZADA.       " -ForegroundColor Green
+Write-Host "==========================================================" -ForegroundColor Magenta

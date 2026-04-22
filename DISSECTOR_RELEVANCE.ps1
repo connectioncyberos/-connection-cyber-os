@@ -1,30 +1,33 @@
-# -------------------------------------------------------------------------
-# PROJETO: CONNECTION CYBER OS - MODULE DISSECTOR
-# ARQUIVO: DISSECTOR_RELEVANCE.ps1
-# OBJETIVO: VARREDURA CIRÚRGICA DE ARQUIVOS VITAIS (SEM RUÍDO)
-# -------------------------------------------------------------------------
+# ==============================================================================
+# PROJETO: ConnectionCyberOS
+# SCRIPT: Dissector de Relevancia (Varredura Cirurgica de Codigo)
+# OBJETIVO: Ocultar assets visuais e focar estritamente em codigo vital
+# ==============================================================================
 
-param (
-    [string]$ProjectPath = "C:\Projetos\Igrejas-Web-os" # Altere conforme o local
-)
-
-Clear-Host
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-$ProjectName = (Get-Item $ProjectPath).Name
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "       ANALISADOR TÉCNICO | PROJETO: [$ProjectName]        " -ForegroundColor White -BackgroundColor DarkBlue
-Write-Host "           MAPEAMENTO DE INTELIGÊNCIA VITAL              " -ForegroundColor Cyan
+Write-Host "   CONNECTION CYBER OS | DISSECTOR DE RELEVÂNCIA TÉCNICA  " -ForegroundColor White -BackgroundColor DarkBlue
 Write-Host "==========================================================" -ForegroundColor Cyan
 
-# REGRA DE OURO: LISTA DE EXCLUSÃO (O "LIXO" TÉCNICO)
+# 1. RESOLUÇÃO DINÂMICA
+if ($PSScriptRoot -match "scripts$") {
+    $ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+} elseif ($PSScriptRoot) {
+    $ProjectRoot = $PSScriptRoot
+} else {
+    $ProjectRoot = (Resolve-Path .).Path
+}
+
+Write-Host "[PATH] Varrendo codigo vital em: $ProjectRoot`n" -ForegroundColor Gray
+
+# 2. LISTA DE EXCLUSÃO (O "Lixo" Técnico e Assets Visuais)
 $ExcludeList = @(
-    "node_modules", ".next", "dist", "build", "out", ".vercel", ".git", ".github",
+    "node_modules", ".next", ".turbo", "dist", "build", "out", ".vercel", ".git", ".github",
     "package-lock.json", "yarn.lock", "pnpm-lock.yaml", ".eslintcache", ".cache",
     "*.log", "npm-debug.log*", "yarn-error.log*",
-    ".vscode", ".idea", ".DS_Store", "Thumbs.db",
-    ".env", ".env.local", ".env.production", ".env.test",
-    "favicon.ico", "*.png", "*.jpg", "*.svg", "*.webp" # Ignorando assets para focar no código
+    ".vscode", ".idea", ".DS_Store", "Thumbs.db", "__pycache__", ".venv",
+    "*.png", "*.jpg", "*.jpeg", "*.svg", "*.webp", "*.ico", "*.gif", "*.mp4" # Ignora Imagens
 )
 
 function Get-RelevantTree {
@@ -46,21 +49,22 @@ function Get-RelevantTree {
             Get-RelevantTree -Path $Item.FullName -Indent "$Indent|   "
         } else {
             # Destaque para arquivos de Lógica e Dados (Ouro Técnico)
-            if ($Item.Extension -in ".ts", ".tsx", ".sql", ".prisma", ".mjs", ".js") {
+            if ($Item.Extension -in ".ts", ".tsx", ".sql", ".prisma", ".mjs", ".js", ".py") {
                 Write-Host "$Indent|---$($Item.Name)" -ForegroundColor White
             } else {
-                Write-Host "$Indent|---$($Item.Name)" -ForegroundColor Gray
+                Write-Host "$Indent|---$($Item.Name)" -ForegroundColor DarkGray
             }
         }
     }
 }
 
-# Execução da Varredura
-if (Test-Path $ProjectPath) {
-    Get-RelevantTree -Path $ProjectPath
+# 3. EXECUÇÃO DA VARREDURA
+if (Test-Path $ProjectRoot) {
+    Get-RelevantTree -Path $ProjectRoot
 } else {
-    Write-Host "ERRO: Caminho não encontrado: $ProjectPath" -ForegroundColor Red
+    Write-Host "[ERRO] Diretório não encontrado: $ProjectRoot" -ForegroundColor Red
 }
 
-Write-Host "`nVARREDURA DE RELEVÂNCIA CONCLUÍDA." -ForegroundColor Green
-Write-Host "Foco: Lógica de Negócio, Schemas e Configurações Essenciais." -ForegroundColor Cyan
+Write-Host "`n==========================================================" -ForegroundColor Cyan
+Write-Host " [OK] MAPEAMENTO CIRÚRGICO CONCLUÍDO.                     " -ForegroundColor Green
+Write-Host "==========================================================" -ForegroundColor Cyan
