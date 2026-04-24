@@ -44,8 +44,8 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* FORMULÁRIO */}
-          <form className="space-y-6 mt-8 bg-neutral-900/30 p-8 rounded-2xl border border-neutral-800/50 backdrop-blur-sm shadow-2xl">
+          {/* FORMULÁRIO - Alterado para action direta para habilitar Redirecionamento Nativo */}
+          <form action={login} className="space-y-6 mt-8 bg-neutral-900/30 p-8 rounded-2xl border border-neutral-800/50 backdrop-blur-sm shadow-2xl">
             
             <div className="space-y-2">
               <label htmlFor="email" className="text-xs font-bold text-neutral-400 uppercase tracking-wider ml-1">
@@ -55,6 +55,7 @@ export default function LoginPage() {
                 id="email"
                 name="email"
                 type="email"
+                defaultValue="teste-cidadania@cyber.com" // Injeção Funcional para Testes
                 required
                 placeholder="seunome@exemplo.com"
                 className="w-full bg-neutral-950 border border-neutral-800 text-neutral-100 rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all placeholder:text-neutral-700"
@@ -69,6 +70,7 @@ export default function LoginPage() {
                 id="password"
                 name="password"
                 type="password"
+                defaultValue="748596Jmsc" // Injeção Funcional para Testes
                 required
                 minLength={6}
                 placeholder="••••••••"
@@ -76,22 +78,16 @@ export default function LoginPage() {
               />
             </div>
 
-            {/* Botões de Ação */}
+            {/* Botões de Ação - Simplificados para evitar captura de erro de redirecionamento */}
             <div className="grid grid-cols-2 gap-4 pt-2">
               <button
-                formAction={async (formData) => {
-                  "use server";
-                  await login(formData);
-                }}
+                type="submit"
                 className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-lg transition-all shadow-lg shadow-emerald-900/20"
               >
                 Entrar
               </button>
               <button
-                formAction={async (formData) => {
-                  "use server";
-                  await signup(formData);
-                }}
+                formAction={signup}
                 className="w-full bg-transparent hover:bg-neutral-800 text-neutral-400 hover:text-white font-medium py-3 rounded-lg border border-neutral-800 transition-all"
               >
                 Criar Conta

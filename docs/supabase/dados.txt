@@ -1,0 +1,86 @@
+Antes de prossefuir podemos avaliar me SUPABSE:
+
+
+
+🧩 8. Tipos personalizados (ENUMs)
+schema,enum_name,value
+auth,aal_level,aal1
+auth,aal_level,aal2
+auth,aal_level,aal3
+auth,code_challenge_method,s256
+auth,code_challenge_method,plain
+auth,factor_status,unverified
+auth,factor_status,verified
+auth,factor_type,totp
+auth,factor_type,webauthn
+auth,factor_type,phone
+auth,oauth_authorization_status,pending
+auth,oauth_authorization_status,approved
+auth,oauth_authorization_status,denied
+auth,oauth_authorization_status,expired
+auth,oauth_client_type,public
+auth,oauth_client_type,confidential
+auth,oauth_registration_type,dynamic
+auth,oauth_registration_type,manual
+auth,oauth_response_type,code
+auth,one_time_token_type,confirmation_token
+auth,one_time_token_type,reauthentication_token
+auth,one_time_token_type,recovery_token
+auth,one_time_token_type,email_change_token_new
+auth,one_time_token_type,email_change_token_current
+auth,one_time_token_type,phone_change_token
+public,AccountStatus,ACTIVE
+public,AccountStatus,INACTIVE
+public,AccountStatus,DISCIPLINE
+public,AccountStatus,SUSPENDED
+public,FinancialStatus,UP_TO_DATE
+public,FinancialStatus,PENDING
+public,OrgType,TECH_HUB
+public,OrgType,ACADEMY
+public,OrgType,CHURCH
+public,OrgType,ONG
+public,OrgType,HOSPITAL
+public,OrgType,CLINIC
+public,OrgType,RETAIL
+realtime,action,INSERT
+realtime,action,UPDATE
+realtime,action,DELETE
+realtime,action,TRUNCATE
+realtime,action,ERROR
+realtime,equality_op,eq
+realtime,equality_op,neq
+realtime,equality_op,lt
+realtime,equality_op,lte
+realtime,equality_op,gt
+realtime,equality_op,gte
+realtime,equality_op,in
+storage,buckettype,STANDARD
+storage,buckettype,ANALYTICS
+storage,buckettype,VECTOR
+
+🧱 9. Tabelas com triggers
+table_schema,table_name,trigger_name,action_timing,event_manipulation,action_statement
+realtime,subscription,tr_check_filters,BEFORE,INSERT,EXECUTE FUNCTION realtime.subscription_check_filters()
+realtime,subscription,tr_check_filters,BEFORE,UPDATE,EXECUTE FUNCTION realtime.subscription_check_filters()
+storage,buckets,enforce_bucket_name_length_trigger,BEFORE,INSERT,EXECUTE FUNCTION storage.enforce_bucket_name_length()
+storage,buckets,enforce_bucket_name_length_trigger,BEFORE,UPDATE,EXECUTE FUNCTION storage.enforce_bucket_name_length()
+storage,buckets,protect_buckets_delete,BEFORE,DELETE,EXECUTE FUNCTION storage.protect_delete()
+storage,objects,protect_objects_delete,BEFORE,DELETE,EXECUTE FUNCTION storage.protect_delete()
+storage,objects,update_objects_updated_at,BEFORE,UPDATE,EXECUTE FUNCTION storage.update_updated_at_column()
+
+
+
+Criar tudo isso junto
+Criar o plano de implementação (ordem de desenvolvimento)  
+Criar tudo isso junto
+Criar o documento técnico unificado (PDF conceitual)  
+Criar o blueprint de arquitetura (mapa visual)  
+Criar o documento de governança (RBAC + RLS + Claims)  
+Criar o documento de padrões visuais (Design System)  
+Criar o documento de Dynamic Shell (motor de injeção modular)  
+
+
+
+
+
+

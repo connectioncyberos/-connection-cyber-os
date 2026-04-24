@@ -1,33 +1,28 @@
-﻿import { createServerClient } from "@supabase/ssr";
-import { cookies } from "next/headers";
+﻿// Local: web/src/utils/supabase/server.ts
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
 
 export async function createClient() {
-  const cookieStore = await cookies();
-
-  // O código busca as chaves automaticamente do arquivo .env.local
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+  const cookieStore = await cookies() // Certifique-se do 'await' aqui no Next.js 15
 
   return createServerClient(
-    supabaseUrl,
-    supabaseKey,
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll() {
-          return cookieStore.getAll();
+          return cookieStore.getAll()
         },
         setAll(cookiesToSet) {
           try {
             cookiesToSet.forEach(({ name, value, options }) =>
               cookieStore.set(name, value, options)
-            );
+            )
           } catch {
-            // O método setAll foi chamado de um Server Component.
-            // Isso pode ser ignorado se você tiver um middleware atualizando
-            // as sessões do usuário.
+            // Server Components podem ignorar, as Actions resolvem
           }
         },
       },
     }
-  );
+  )
 }
