@@ -10,10 +10,10 @@ interface CockpitCardProps {
 }
 
 export function CockpitCard({ title, subtitle, icon, children, isSpecial }: CockpitCardProps) {
-  // Definição de cores para aplicação sistêmica
+  // Cores de marca sincronizadas com a sombra e borda
   const brandColor = isSpecial ? 'text-cidadania-action' : 'text-cidadania-primary';
   const brandBorder = isSpecial ? 'border-cidadania-action/30' : 'border-cidadania-primary/20';
-  const brandHoverBorder = isSpecial ? 'hover:border-cidadania-action' : 'hover:border-cidadania-primary';
+  const brandHoverBorder = isSpecial ? 'group-hover:border-cidadania-action' : 'group-hover:border-cidadania-primary';
   const iconBgHover = isSpecial ? 'group-hover:bg-emerald-50' : 'group-hover:bg-blue-50';
 
   return (
@@ -24,7 +24,7 @@ export function CockpitCard({ title, subtitle, icon, children, isSpecial }: Cock
       ${brandBorder} ${brandHoverBorder}
       ${isSpecial ? 'shadow-lg shadow-emerald-50' : 'shadow-sm shadow-slate-100'}
     `}>
-      {/* HEADER: Ícone e Títulos */}
+      {/* HEADER: Ícone acende com a cor da marca no hover */}
       <div className="flex items-center gap-5 mb-8">
         <div className={`
           p-4 rounded-2xl transition-all duration-500
@@ -44,12 +44,12 @@ export function CockpitCard({ title, subtitle, icon, children, isSpecial }: Cock
         </div>
       </div>
       
-      {/* CONTEÚDO: Visível e Estruturado */}
+      {/* CONTEÚDO: Espaçamento interno garantido */}
       <div className="relative z-10 space-y-4">
         {children}
       </div>
 
-      {/* DETALHE 3D: Linha de Foco inferior */}
+      {/* DETALHE 3D: Linha de Foco */}
       <div className={`
         absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-0 
         group-hover:w-1/3 transition-all duration-700 rounded-full
