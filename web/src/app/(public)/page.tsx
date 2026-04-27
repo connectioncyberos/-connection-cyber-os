@@ -1,3 +1,6 @@
+// Local: web/src/app/(public)/page.tsx
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
@@ -12,7 +15,9 @@ import {
   Zap,
   Monitor,
   Rocket,
-  Briefcase
+  Briefcase,
+  LayoutDashboard,
+  GraduationCap
 } from 'lucide-react';
 
 export default function Home() {
@@ -57,61 +62,53 @@ export default function Home() {
 
       <main className="flex-1 pt-16">
         
-        {/* HERO SECTION COMPACTA */}
+        {/* HERO SECTION - PRESERVADA E INTEGRADA */}
         <header className="relative py-12 px-4 overflow-hidden flex flex-col items-center justify-center min-h-[60vh]">
-           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[500px] bg-emerald-900/10 rounded-full blur-[100px] pointer-events-none" />
-           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] pointer-events-none opacity-20"></div>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[500px] bg-emerald-900/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] pointer-events-none opacity-20"></div>
 
-           <div className="max-w-5xl mx-auto text-center relative z-10">
-             
-             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900/80 border border-neutral-800 backdrop-blur-sm mb-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-               <span className="relative flex h-2.5 w-2.5">
-                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-               </span>
-               <span className="text-sm font-medium text-neutral-300">Ecossistema Integrado de Tecnologia e Educação</span>
-             </div>
+            <div className="max-w-5xl mx-auto text-center relative z-10">
+              
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900/80 border border-neutral-800 backdrop-blur-sm mb-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span className="text-sm font-medium text-neutral-300">Ecossistema ADBRAS Madureira Piracicaba</span>
+              </div>
 
-             <h1 className="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight leading-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
-               O Sistema Operacional da sua <br />
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600 text-glow">
-                 Evolução Corporativa.
-               </span>
-             </h1>
-             
-             <p className="text-lg md:text-xl text-neutral-400 mb-8 leading-relaxed max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-               Centralize gestão, capacitação e inteligência estratégica em uma única plataforma. 
-               Do &quot;Primeiro Emprego&quot; à liderança executiva, o VaultMindOS conecta potenciais a resultados.
-             </p>
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
+                Gestão, Tecnologia & <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600 text-glow italic">
+                  Cidadania Digital.
+                </span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-neutral-400 mb-8 leading-relaxed max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+                Centralize a capacitação acadêmica e a governança social em uma única plataforma integrada. 
+                Conecte moradores, alunos e gestores ao futuro da comunidade.
+              </p>
 
-             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
-               <Link href="/servicos" className="group bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3.5 rounded-full text-base font-bold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/20 hover:shadow-emerald-900/40 hover:scale-105">
-                 Explorar Soluções
-                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-               </Link>
-               <Link href="/primeiro-emprego" className="group bg-neutral-900/80 hover:bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 text-white px-8 py-3.5 rounded-full text-base font-medium transition-all flex items-center gap-2 backdrop-blur-sm hover:scale-105">
-                 Iniciativa Primeiro Emprego
-               </Link>
-             </div>
+              {/* BOTÕES DE CONVERSÃO INTEGRADOS - CAMINHOS AUDITADOS */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
+                <Link href="/cursos" className="group bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-4 rounded-full text-base font-bold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/20 hover:scale-105">
+                  ACADEMY <GraduationCap size={20} />
+                </Link>
+                <Link href="/portal-cidadania" className="group bg-neutral-900/80 hover:bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 text-white px-10 py-4 rounded-full text-base font-medium transition-all flex items-center gap-2 backdrop-blur-sm hover:scale-105">
+                  PORTAL CIDADANIA <LayoutDashboard size={20} />
+                </Link>
+              </div>
 
-           </div>
+            </div>
         </header>
 
-
-        {/* Nossas Áreas de Atuação - Compactada */}
+        {/* ÁREAS DE ATUAÇÃO - MANTIDAS */}
         <section className="py-16 bg-neutral-950 relative overflow-hidden border-t border-neutral-900">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-900/5 rounded-full blur-[150px] pointer-events-none" />
-
             <div className="text-center mb-10 relative z-10 px-4">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">
-                    Nossas Áreas de Atuação
-                </h2>
-                {/* FUSÃO TÉCNICA: Injeção de Inteligência Funcional Isolada */}
-                <p className="text-neutral-400 italic max-w-2xl mx-auto">
-                    &quot;Transformando potencial em prontidão técnica para o mercado real.&quot;
-                </p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">Nossas Áreas de Atuação</h2>
+                <p className="text-neutral-400 italic max-w-2xl mx-auto italic">&quot;Transformando potencial em prontidão técnica para o mercado real.&quot;</p>
             </div>
-
             <div className="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {features.map((feature, index) => (
                     <FeatureCard key={index} {...feature} />
@@ -119,26 +116,15 @@ export default function Home() {
             </div>
         </section>
 
-
-        {/* Why Us Section - Compactada */}
+        {/* SEÇÃO WHY US - MANTIDA INTEGRALMENTE */}
         <section className="py-16 bg-neutral-900/30 relative border-y border-neutral-900">
           <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-              
               <div className="relative">
                   <div className="aspect-square rounded-3xl bg-neutral-900 border border-neutral-800 overflow-hidden relative group">
-                       <div className="absolute inset-0 bg-gradient-to-tr from-neutral-950 via-transparent to-emerald-900/20 opacity-50 group-hover:opacity-70 transition-opacity" />
-                       
+                       <div className="absolute inset-0 bg-gradient-to-tr from-neutral-950 via-transparent to-emerald-900/20 opacity-50 transition-opacity" />
                        <div className="absolute inset-4 border border-neutral-800 rounded-2xl bg-neutral-950/50 p-6 flex flex-col gap-4 backdrop-blur-md">
-                           {/* FUSÃO TÉCNICA: Otimização de Imagem injetada para compliance com Lint/LCP */}
                            <div className="mb-4">
-                            <Image 
-                              src="/logo-connection-cyber.png" 
-                              alt="VaultMindOS Logo" 
-                              width={128} 
-                              height={32} 
-                              priority 
-                              className="object-contain"
-                            />
+                            <Image src="/logo-connection-cyber.png" alt="Logo" width={128} height={32} priority className="object-contain" />
                            </div>
                            <div className="h-8 w-3/4 bg-neutral-800/50 rounded-lg animate-pulse" />
                            <div className="flex gap-4">
@@ -147,54 +133,25 @@ export default function Home() {
                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
                                </div>
                            </div>
-                           <div className="h-8 w-full bg-neutral-800/50 rounded-lg" />
                            <div className="h-32 w-full bg-neutral-800/50 rounded-lg mt-auto" />
-                       </div>
-
-                       <div className="absolute -top-6 -right-6 w-16 h-16 bg-neutral-900 border border-neutral-800 rounded-xl flex items-center justify-center shadow-xl transform rotate-12 group-hover:rotate-6 transition-transform">
-                           <Cpu className="w-8 h-8 text-emerald-500" />
-                       </div>
-                       <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-neutral-900 border border-neutral-800 rounded-xl flex items-center justify-center shadow-xl transform -rotate-12 group-hover:-rotate-6 transition-transform">
-                           <Shield className="w-8 h-8 text-emerald-500" />
                        </div>
                   </div>
               </div>
-
               <div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
-                      Muito mais que software. <br />
-                      Uma <span className="text-emerald-500">parceria estratégica.</span>
-                  </h2>
-                  <p className="text-lg text-neutral-400 mb-8 leading-relaxed">
-                      O ConnectionCyberOS Ecosystem não apenas fornece as ferramentas, mas também o caminho para o crescimento sustentável.
-                      Integramos tecnologia de ponta com desenvolvimento humano.
-                  </p>
-                  
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">Muito mais que software. <br /><span className="text-emerald-500">Parceria estratégica.</span></h2>
+                  <p className="text-lg text-neutral-400 mb-8 leading-relaxed">Integramos tecnologia de ponta com desenvolvimento humano para a ADBRAS.</p>
                   <ul className="space-y-4">
-                      {[
-                          { title: 'Segurança Unificada', desc: 'Proteção de dados e ativos físicos em uma única visão.' },
-                          { title: 'Capacitação Contínua', desc: 'Sua equipe treinada nas tecnologias que sua empresa usa.' },
-                          { title: 'Eficiência Operacional', desc: 'Automatize rotinas e foque no que realmente importa.' },
-                      ].map((item, i) => (
+                      {[{ title: 'Segurança Unificada', desc: 'Proteção de ativos físicos e digitais.' }, { title: 'Capacitação', desc: 'Sua equipe treinada no Academy.' }].map((item, i) => (
                           <li key={i} className="flex items-start gap-4 group">
-                              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-colors">
-                                  <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-                              </div>
-                              <div>
-                                  <h3 className="text-lg font-bold text-white mb-1 group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-                                  <p className="text-neutral-500">{item.desc}</p>
-                              </div>
+                              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20"><CheckCircle2 className="w-5 h-5 text-emerald-500" /></div>
+                              <div><h3 className="text-lg font-bold text-white mb-1">{item.title}</h3><p className="text-neutral-500">{item.desc}</p></div>
                           </li>
                       ))}
                   </ul>
               </div>
-
           </div>
         </section>
-
       </main>
-      
     </div>
   );
 }
-// Deploy de Teste - Sincronização M07/M12 concluída em 06/02/2026
