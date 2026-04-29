@@ -1,0 +1,6 @@
+{
+  "module": "logs",
+  "version": "1.0.0",
+  "description": "Configurações do módulo global de logs do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

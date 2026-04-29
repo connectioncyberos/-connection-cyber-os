@@ -1,0 +1,6 @@
+{
+  "module": "sms",
+  "version": "1.0.0",
+  "description": "Configurações do módulo global de SMS do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

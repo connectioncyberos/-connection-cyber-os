@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Global Audit Schema",
+  "type": "object",
+  "properties": {
+    "timestamp": { "type": "string", "format": "date-time" },
+    "module": { "type": "string" },
+    "event": { "type": "string" },
+    "severity": { "type": "string", "enum": ["info", "warning", "error", "critical"] },
+    "details": { "type": "object" }
+  },
+  "required": ["timestamp", "module", "event"]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Identity Navigation Schema",
+  "type": "object",
+  "properties": {
+    "route": { "type": "string" },
+    "allowed_roles": { "type": "array", "items": { "type": "string" } },
+    "allowed_claims": { "type": "array", "items": { "type": "string" } },
+    "allowed_tenants": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["route"]
+}

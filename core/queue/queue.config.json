@@ -1,0 +1,6 @@
+{
+  "module": "queue",
+  "version": "1.0.0",
+  "description": "Configurações do módulo global de filas do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

@@ -1,0 +1,6 @@
+{
+  "module": "claims",
+  "version": "1.0.0",
+  "description": "Configurações do módulo de claims do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

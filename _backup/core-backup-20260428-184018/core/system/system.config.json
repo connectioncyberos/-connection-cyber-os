@@ -1,0 +1,6 @@
+{
+  "module": "system",
+  "version": "1.0.0",
+  "description": "Configurações do módulo global de informações do sistema do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

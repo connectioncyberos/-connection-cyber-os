@@ -1,0 +1,6 @@
+{
+  "module": "storage",
+  "version": "1.0.0",
+  "description": "Configurações do módulo de armazenamento global do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

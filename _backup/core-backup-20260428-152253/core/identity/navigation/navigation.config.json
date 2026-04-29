@@ -1,0 +1,6 @@
+{
+  "module": "navigation",
+  "version": "1.0.0",
+  "description": "Configurações do módulo de navegação baseada em identidade do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

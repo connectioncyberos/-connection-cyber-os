@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Security Schema",
+  "type": "object",
+  "properties": {
+    "token": { "type": "string" },
+    "expires_in": { "type": "number" },
+    "algorithm": { "type": "string" }
+  },
+  "required": ["token"]
+}

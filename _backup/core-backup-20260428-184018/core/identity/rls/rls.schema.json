@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RLS Schema",
+  "type": "object",
+  "properties": {
+    "tenant_id": { "type": "string" },
+    "resource": { "type": "string" },
+    "access_level": { "type": "string", "enum": ["read", "write", "admin"] }
+  },
+  "required": ["tenant_id", "resource", "access_level"]
+}

@@ -1,0 +1,6 @@
+{
+  "module": "config",
+  "version": "1.0.0",
+  "description": "Configurações do módulo de configuração global do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mail Schema",
+  "type": "object",
+  "properties": {
+    "to": { "type": "string" },
+    "subject": { "type": "string" },
+    "body": { "type": "string" },
+    "provider": { "type": "string" }
+  },
+  "required": ["to", "subject", "body"]
+}

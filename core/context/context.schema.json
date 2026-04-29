@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Global Context Schema",
+  "type": "object",
+  "properties": {
+    "environment": { "type": "string", "enum": ["dev", "stage", "prod"] },
+    "module": { "type": "string" },
+    "portal": { "type": "string" },
+    "tenant_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" }
+  },
+  "required": ["environment", "module"]
+}

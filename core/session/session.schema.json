@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Global Session Schema",
+  "type": "object",
+  "properties": {
+    "session_id": { "type": "string" },
+    "user_id": { "type": "string" },
+    "tenant_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "fingerprint": { "type": "string" }
+  },
+  "required": ["session_id", "user_id", "created_at", "expires_at"]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Global Navigation Schema",
+  "type": "object",
+  "properties": {
+    "route": { "type": "string" },
+    "module": { "type": "string" },
+    "portal": { "type": "string" },
+    "environment": { "type": "string", "enum": ["dev", "stage", "prod"] },
+    "enabled": { "type": "boolean" }
+  },
+  "required": ["route", "module"]
+}

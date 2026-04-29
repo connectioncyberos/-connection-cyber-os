@@ -1,0 +1,6 @@
+{
+  "module": "events",
+  "version": "1.0.0",
+  "description": "Configurações do módulo global de eventos do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

@@ -1,0 +1,6 @@
+{
+  "module": "audit",
+  "version": "1.0.0",
+  "description": "Configurações do módulo de auditoria de identidade do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

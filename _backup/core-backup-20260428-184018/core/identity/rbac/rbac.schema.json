@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RBAC Schema",
+  "type": "object",
+  "properties": {
+    "role_id": { "type": "string" },
+    "role_name": { "type": "string" },
+    "permissions": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["role_id", "role_name"]
+}

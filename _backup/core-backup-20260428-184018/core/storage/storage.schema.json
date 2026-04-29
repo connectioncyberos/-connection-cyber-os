@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Storage Schema",
+  "type": "object",
+  "properties": {
+    "path": { "type": "string" },
+    "provider": { "type": "string" },
+    "secure": { "type": "boolean" }
+  },
+  "required": ["path"]
+}

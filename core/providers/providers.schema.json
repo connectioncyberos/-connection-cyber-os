@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Providers Schema",
+  "type": "object",
+  "properties": {
+    "provider": { "type": "string" },
+    "config": { "type": "object" },
+    "enabled": { "type": "boolean" }
+  },
+  "required": ["provider"]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Identity Context Schema",
+  "type": "object",
+  "properties": {
+    "user_id": { "type": "string" },
+    "tenant_id": { "type": "string" },
+    "claims": { "type": "array", "items": { "type": "string" } },
+    "role": { "type": "string" },
+    "permissions": { "type": "array", "items": { "type": "string" } },
+    "rls": {
+      "type": "object",
+      "properties": {
+        "resource": { "type": "string" },
+        "level": { "type": "string" }
+      }
+    }
+  },
+  "required": ["user_id", "tenant_id"]
+}

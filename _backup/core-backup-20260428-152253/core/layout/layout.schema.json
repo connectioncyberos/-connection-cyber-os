@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Layout Schema",
+  "type": "object",
+  "properties": {
+    "theme": { "type": "string" },
+    "primary_color": { "type": "string" },
+    "secondary_color": { "type": "string" },
+    "font_family": { "type": "string" },
+    "border_radius": { "type": "string" }
+  },
+  "required": ["theme", "primary_color"]
+}

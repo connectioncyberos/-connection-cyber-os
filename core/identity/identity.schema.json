@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Identity Schema",
+  "type": "object",
+  "properties": {
+    "user_id": { "type": "string" },
+    "tenant_id": { "type": "string" },
+    "claims": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["user_id", "tenant_id"]
+}

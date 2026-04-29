@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Claims Schema",
+  "type": "object",
+  "properties": {
+    "claim_id": { "type": "string" },
+    "claim_name": { "type": "string" },
+    "description": { "type": "string" }
+  },
+  "required": ["claim_id", "claim_name"]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Identity Audit Schema",
+  "type": "object",
+  "properties": {
+    "timestamp": { "type": "string", "format": "date-time" },
+    "event": { "type": "string" },
+    "user_id": { "type": "string" },
+    "tenant_id": { "type": "string" },
+    "details": { "type": "object" }
+  },
+  "required": ["timestamp", "event"]
+}

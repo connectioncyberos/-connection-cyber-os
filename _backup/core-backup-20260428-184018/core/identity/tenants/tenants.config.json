@@ -1,0 +1,6 @@
+{
+  "module": "tenants",
+  "version": "1.0.0",
+  "description": "Configurações do módulo de tenants do ConnectionCyberOS.",
+  "encoding": "UTF-8"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tenants Schema",
+  "type": "object",
+  "properties": {
+    "tenant_id": { "type": "string" },
+    "tenant_name": { "type": "string" },
+    "active": { "type": "boolean" }
+  },
+  "required": ["tenant_id", "tenant_name"]
+}
