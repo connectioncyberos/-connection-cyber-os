@@ -1,36 +1,33 @@
-﻿import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
-import SystemStatus from "@/components/SystemStatus";
-import BackgroundVideo from "@/components/BackgroundVideo";
+﻿// ============================================================================
+// PROJETO: ConnectionCyberOS
+// MÓDULO: UI-CORE / Layout Global
+// ARQUIVO: src/app/layout.tsx
+// DESCRIÇÃO: Layout raiz com ThemeProvider global.
+// ============================================================================
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "VaultMindOS | Enterprise Intelligence",
-  description: "Sistema de Gestão Modular e Inteligência de Dados.",
+  title: "Connection Cyber OS",
+  description: "Sistema Integrado de Governança e Inteligência",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning={true}>
-      <body
-        className={`${inter.variable} ${mono.variable} antialiased text-slate-200 bg-transparent`}
-        suppressHydrationWarning={true}
-      >
-        {/* Componentes Globais do VaultMindOS */}
-        <BackgroundVideo />
-
-        <div className="relative z-10 min-h-screen flex flex-col">
+    <html lang="pt-br" suppressHydrationWarning>
+      <body className={`${inter.className} antialiased`}>
+        <ThemeProvider>
           {children}
-        </div>
-
-        <SystemStatus />
+        </ThemeProvider>
       </body>
     </html>
   );
