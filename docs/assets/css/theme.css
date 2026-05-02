@@ -1,0 +1,67 @@
+/* ================================
+   THEME CONNECTIONCYBEROS — BASE
+   ================================ */
+
+/* Paleta oficial */
+:root {
+    --cc-dark: #0d0f12;
+    --cc-dark-light: #161a1f;
+    --cc-green: #00ff88;
+    --cc-red: #ff0044;
+    --cc-blue: #00c8ff;
+    --cc-text: #e6e6e6;
+    --cc-text-muted: #9aa0a6;
+    --cc-border: #2a2f36;
+    --cc-radius: 8px;
+    --cc-font: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* Corpo geral */
+body {
+    background: var(--cc-dark);
+    color: var(--cc-text);
+    font-family: var(--cc-font);
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar */
+#sidebar {
+    width: 260px;
+    background: var(--cc-dark-light);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    border-right: 1px solid var(--cc-border);
+}
+
+#sidebar a {
+    color: var(--cc-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#sidebar a:hover {
+    color: var(--cc-blue);
+}
+
+/* Conteúdo */
+#content {
+    margin-left: 280px;
+    padding: 20px;
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+    color: var(--cc-green);
+    font-weight: 600;
+}
+
+/* Parágrafos */
+p {
+    color: var(--cc-text-muted);
+    line-height: 1.6;
+}
