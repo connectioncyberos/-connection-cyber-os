@@ -1,0 +1,63 @@
+/* ================================
+   COMPONENTES VISUAIS CORPORATIVOS
+   ================================ */
+
+/* Containers */
+.cc-container {
+    background: var(--cc-dark-light);
+    padding: 24px;
+    border-radius: var(--cc-radius);
+    border: 1px solid var(--cc-border);
+    margin-bottom: 24px;
+}
+
+/* Cards */
+.cc-card {
+    background: var(--cc-dark-light);
+    padding: 20px;
+    border-radius: var(--cc-radius);
+    border: 1px solid var(--cc-border);
+    transition: 0.2s ease;
+}
+
+.cc-card:hover {
+    border-color: var(--cc-green);
+    transform: translateY(-2px);
+}
+
+/* Grid */
+.cc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Botões */
+.cc-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: var(--cc-radius);
+    background: var(--cc-green);
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.cc-btn:hover {
+    background: var(--cc-blue);
+}
+
+/* Títulos de seção */
+.cc-section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--cc-green);
+    margin-bottom: 16px;
+}
+
+/* Texto */
+.cc-text {
+    color: var(--cc-text-muted);
+    line-height: 1.6;
+}
