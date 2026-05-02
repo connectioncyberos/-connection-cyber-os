@@ -65,3 +65,50 @@ p {
     color: var(--cc-text-muted);
     line-height: 1.6;
 }
+
+---
+
+/* ================================
+   REFINO VISUAL PREMIUM
+   ================================ */
+
+/* Suavização de fontes */
+body, h1, h2, h3, h4, p, a {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Transições globais */
+* {
+    transition: 0.25s ease;
+}
+
+/* Hover premium em links */
+a:hover {
+    opacity: 0.85;
+}
+
+/* Sombras suaves */
+.cc-card, .cc-container {
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.cc-card:hover, .cc-container:hover {
+    box-shadow: 0 4px 14px rgba(0, 255, 136, 0.12);
+}
+
+/* Destaque sutil em títulos */
+.cc-section-title {
+    text-shadow: 0 0 6px rgba(0, 255, 136, 0.25);
+}
+
+/* Animação de entrada */
+.cc-card, .cc-container {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

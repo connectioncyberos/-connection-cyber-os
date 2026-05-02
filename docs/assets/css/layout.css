@@ -25,3 +25,145 @@
         margin-left: 0;
     }
 }
+
+---
+
+/* ================================
+   HEADER CORPORATIVO
+   ================================ */
+
+.cc-header {
+    background: var(--cc-dark-light);
+    border-bottom: 1px solid var(--cc-border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 999;
+}
+
+.cc-header-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.cc-header-logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cc-logo-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.cc-green { background: var(--cc-green); }
+.cc-blue  { background: var(--cc-blue); }
+.cc-red   { background: var(--cc-red); }
+
+.cc-logo-text {
+    font-weight: 700;
+    color: var(--cc-text);
+}
+
+.cc-header-nav a {
+    color: var(--cc-text-muted);
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.cc-header-nav a:hover {
+    color: var(--cc-green);
+}
+
+---
+
+/* ================================
+   FOOTER CORPORATIVO
+   ================================ */
+
+.cc-footer {
+    background: var(--cc-dark-light);
+    border-top: 1px solid var(--cc-border);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.cc-footer-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.cc-footer-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cc-footer-logo {
+    font-size: 22px;
+    color: var(--cc-green);
+}
+
+.cc-footer-text {
+    color: var(--cc-text-muted);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.cc-footer-brand {
+    color: var(--cc-green);
+    font-weight: 600;
+}
+
+.cc-system-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--cc-green);
+    font-weight: 600;
+}
+
+.cc-status-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--cc-green);
+    border-radius: 50%;
+}
+
+---
+
+/* ================================
+   MICROAJUSTES DE LAYOUT
+   ================================ */
+
+/* Espaçamento mais elegante */
+.cc-wrapper {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+/* Ajuste fino no conteúdo */
+#content {
+    line-height: 1.7;
+}
+
+/* Hover suave no menu */
+.cc-header-nav a:hover {
+    text-shadow: 0 0 6px rgba(0, 255, 136, 0.4);
+}

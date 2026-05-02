@@ -5,17 +5,43 @@
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}">
 </head>
 
+{% include footer.html %}
 <body>
+{% include header.html %}
 
 <div id="sidebar">
     {% include sidebar.md %}
 </div>
 
-<div id="content">
+<div id="content" style="padding-top: 80px;" >
     {{ content }}
 </div>
 
+---
+
 </body>
 </html>
+<header class="cc-header">
+    <div class="cc-header-wrapper">
+
+        <div class="cc-header-logo">
+            <span class="cc-logo-dot cc-green"></span>
+            <span class="cc-logo-dot cc-blue"></span>
+            <span class="cc-logo-dot cc-red"></span>
+            <span class="cc-logo-text">ConnectionCyberOS</span>
+        </div>
+
+        <nav class="cc-header-nav">
+            <a href="/docs/index.md">Início</a>
+            <a href="/docs/modulos.md">Módulos</a>
+            <a href="/docs/governanca.md">Governança</a>
+            <a href="/docs/arquitetura.md">Arquitetura</a>
+            <a href="/docs/seguranca.md">Segurança</a>
+        </nav>
+
+    </div>
+</header>
