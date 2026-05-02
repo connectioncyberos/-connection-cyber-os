@@ -1,0 +1,9 @@
+# Arquivo: docs/_config.yml
+# Projeto: Connection Cyber OS 2.0
+# Função: Configuração do GitHub Pages (Jekyll)
+
+title: "Connection Cyber OS 2.0"
+description: "Plataforma Enterprise Multissetorial — Governança, Segurança, Acessibilidade e Internacionalização"
+theme: minima
+markdown: kramdown
+highlighter: rouge

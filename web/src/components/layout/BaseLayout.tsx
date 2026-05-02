@@ -6,6 +6,7 @@
 // ============================================================================
 
 import Header from "./Header";
+import ThemeSwitcher from "@/components/theme/ThemeSwitcher";
 
 export default function BaseLayout({
   children,
@@ -25,6 +26,8 @@ export default function BaseLayout({
     >
       <Header />
       <main style={{ flex: 1, padding: "24px" }}>{children}</main>
+
+      <ThemeSwitcher />
     </div>
   );
 }
