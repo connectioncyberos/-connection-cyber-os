@@ -7,3 +7,9 @@ description: "Plataforma Enterprise Multissetorial — Governança, Segurança, 
 theme: minima
 markdown: kramdown
 highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
